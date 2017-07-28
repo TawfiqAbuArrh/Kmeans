@@ -8,7 +8,13 @@ import java.util.Scanner;
 public class kmeans {
     public static void main(String[] args) {
         try {
-        Scanner input = new Scanner(new File("/home/tawfiq/test_data.txt"));
+            
+        //File Location , As you like just copy file location and paste it in directory below.
+            
+        Scanner input = new Scanner(new File("/home/###NAME###/Desktop/test_data.txt"));Linux
+        //Scanner input = new Scanner(new File("C:\\Usres\\###NAME###\\Desktop\\test_data.txt"));Windows
+            
+            
         Scanner in = new Scanner(System.in);
         String answer;
         
