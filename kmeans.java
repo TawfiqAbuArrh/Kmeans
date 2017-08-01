@@ -9,15 +9,14 @@ public class kmeans {
     public static void main(String[] args) {
         try {
             
-            /*
+            /*//
             //Tawfiq Abu Arrh
-            //Yousef Aqra
-            */
+            //*/
             
             
             //file location "Change it" to your location
-        Scanner input = new Scanner(new File("C:\\Users\\Tawfiq\\Desktop\\2d-4c-no4.dat"));
-        
+        Scanner input = new Scanner(new File("C:\\Users\\Tawfiq\\Desktop\\test_data.txt"));  //Windows
+        //Scanner input = new Scanner(new File("/home/tawfiq/Desktop/test_data.txt")); //Linux
         
         Scanner in = new Scanner(System.in);
         String answer;
