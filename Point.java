@@ -6,18 +6,23 @@ import java.util.Scanner;
 
 public class Point 
 {
+    //ArrayList that type ClusterCentroid to store X,Y Centroid
     public static ArrayList<ClusterCentroid> list = new ArrayList();
+    
+    //Arrays to store distances from each point and cluster(1,2,3,4)
     ArrayList<Double> distances1 = new ArrayList();
     ArrayList<Double> distances2 = new ArrayList();
     ArrayList<Double> distances3 = new ArrayList();
     ArrayList<Double> distances4 = new ArrayList();
     Scanner in = new Scanner(System.in);
     
+    //To return Centroid of each cluster to main class to store it in arraylist
     public ClusterCentroid getCentroids (int i)
     {
         return list.get(i);
     }
     
+    //This method run when program run and take centroid from user
     public void getCentroids()
     {
         System.out.println("Please Choose Centroids for cluster (1,2,3,4) (X , Y): ");
@@ -40,6 +45,10 @@ public class Point
         
     }
     
+    /*This method responsible for centroid when user want iteration, what it do
+    *that calculate the distance and call distance method that responsible to 
+    *store dinstance in arrays "distances(1,2,3,4)" that we creat it above
+    */
     public void SecondCentroid()
     {
         distance(0,list.get(0).X(), list.get(0).Y());
@@ -73,9 +82,9 @@ public class Point
         }
     }
     
+    //Cluster Point based in it's distance from each cluster
     public void cluster()
     {
-        
         for(int i = 0; i< distances1.size(); i++)
         {
             double min = distances1.get(i);
@@ -97,6 +106,7 @@ public class Point
         }
     }
     
+    //Method for print the new Centroid
     public void printNewCentroid()
     {
         System.out.println("Centroid cluster1 : (" + list.get(0).X() + " , " + list.get(0).Y() + ")");
@@ -105,6 +115,7 @@ public class Point
         System.out.println("Centroid cluster4 : (" + list.get(3).X() + " , " + list.get(3).Y() + ")");
     }
     
+    //Calculate SSE
     public void SSE()
     {
         double sum = 0;

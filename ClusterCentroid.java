@@ -2,6 +2,9 @@ package Package;
 
 class ClusterCentroid
     {
+            /*Cluster Centroid class that we creat object from it and store it in ArrayList
+            *that implemented in Point Class
+            */
         private double mX = 0;
         private double mY = 0;
         
