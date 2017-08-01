@@ -9,9 +9,11 @@ public class kmeans {
     public static void main(String[] args) {
         try {
             
-            /*//
-            //Tawfiq Abu Arrh
-            //*/
+            /***
+            *
+            *Tawfiq Abu Arrh
+            *
+            */
             
             
             //file location "Change it" to your location
