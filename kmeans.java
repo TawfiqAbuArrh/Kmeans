@@ -9,17 +9,31 @@ public class kmeans {
     public static void main(String[] args) {
         try {
             
-        //File Location , As you like just copy file location and paste it in directory below.
+            /*
+            //Tawfiq Abu Arrh
+            //Yousef Aqra
+            */
             
-        Scanner input = new Scanner(new File("/home/###NAME###/Desktop/test_data.txt"));Linux
-        //Scanner input = new Scanner(new File("C:\\Usres\\###NAME###\\Desktop\\test_data.txt"));Windows
             
-            
+            //file location "Change it" to your location
+        Scanner input = new Scanner(new File("C:\\Users\\Tawfiq\\Desktop\\2d-4c-no4.dat"));
+        
+        
         Scanner in = new Scanner(System.in);
         String answer;
+        boolean Exit = true;
+        int row = 0,Answer = 0;
         
-        int row = 0;
         
+        System.out.println("Do you want? \n1.Mean\n2.Median");
+        while(Exit)
+        {
+            Answer = in.nextInt();
+            if(Answer == 1 ||Answer == 2)
+                Exit = false;
+            else
+                System.out.println("Bad Input,Please Eneter (1,2)");
+        }
             
         while (input.hasNextLine()) {
             int countChar = 0;
@@ -27,7 +41,7 @@ public class kmeans {
             char[] myChar = line.toCharArray();
             for (int i=0;i<myChar.length;i++){
 
-                if (myChar[countChar] == ',')
+                if (myChar[countChar] == ' ')
                 {
                     insertToX(myChar,0,countChar,row);
                     
@@ -45,6 +59,8 @@ public class kmeans {
             }
                 
         ArrayList<ClusterCentroid> centroids = new ArrayList();
+        
+        
         Point pointClass = new Point();
         pointClass.getCentroids();
         pointClass.cluster();
@@ -81,8 +97,15 @@ public class kmeans {
             else
             {
                 Point SecondPoints = new Point();
+                MeanCentroid mean = new MeanCentroid();
+                MedianCentroid median = new MedianCentroid();
                 
-                SecondPoints.newCentroidData();
+                if(Answer == 1)
+                    mean.newMeanCentroidData();
+                else
+                    median.newMedianCentroidData();
+                
+                SecondPoints.printNewCentroid();
                 
                 SecondPoints.SecondCentroid();
                 
@@ -90,11 +113,13 @@ public class kmeans {
             }
         }
                 
-        }catch(Exception ex) {System.err.println("Error in loading file");}
+        pointClass.SSE();
         
+        }catch(Exception ex) {System.err.println("Error in loading file");}
     }
     
     public static double[][] point = new double[863][3];
+    
     public static void insertToX(char[] myChar, int i, int countChar,int row)
     {
         char[] k = new char[countChar];

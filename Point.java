@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Point 
 {
-    static ArrayList<ClusterCentroid> list = new ArrayList();
+    public static ArrayList<ClusterCentroid> list = new ArrayList();
     ArrayList<Double> distances1 = new ArrayList();
     ArrayList<Double> distances2 = new ArrayList();
     ArrayList<Double> distances3 = new ArrayList();
@@ -21,6 +21,7 @@ public class Point
     public void getCentroids()
     {
         System.out.println("Please Choose Centroids for cluster (1,2,3,4) (X , Y): ");
+        
         list.add(new ClusterCentroid(in.nextDouble(), in.nextDouble()));
         list.add(new ClusterCentroid(in.nextDouble(), in.nextDouble()));
         list.add(new ClusterCentroid(in.nextDouble(), in.nextDouble()));
@@ -96,67 +97,31 @@ public class Point
         }
     }
     
-    public void newCentroidData()
-    {
-        int count1 =0 , count2 =0 , count3 =0 , count4 =0;
-        double X;
-        double valueX1 =0 ,valueY1 = 0;
-        double valueX2 =0 ,valueY2 = 0;
-        double valueX3 =0 ,valueY3 = 0;
-        double valueX4 =0 ,valueY4 = 0;
-        
-        for (double[] arr : point) {
-            X = (arr[2]);
-
-            if (X == 1)
-            {   
-                count1++;
-                valueX1 +=arr[0];
-                valueY1 += arr[1];
-            }
-            else if(X == 2)
-            {
-                count2++;
-                valueX2 +=arr[0];
-                valueY2 += arr[1];
-            }
-            else if(X == 3)
-            {
-                count3++;
-                valueX3 +=arr[0];
-                valueY3 += arr[1];
-            }
-            else if(X == 4)
-            {
-                count4++;
-                valueX4 +=arr[0];
-                valueY4 += arr[1];
-            }
-        }
-        
-        AddNewCentroid(0,count1,valueX1,valueY1);
-        AddNewCentroid(1,count2,valueX2,valueY2);
-        AddNewCentroid(2,count3,valueX3,valueY3);
-        AddNewCentroid(3,count4,valueX4,valueY4);
-        printNewCentroid();
-
-    }
-    private void AddNewCentroid(int clusterID,int count,double v1,double v2)
-    {
-        if (count != 0)
-        {
-            list.set(clusterID, new ClusterCentroid((v1/count),(v2/count)));
-        }
-        else
-        {
-            list.set(clusterID, new ClusterCentroid(list.get(clusterID).X(),list.get(clusterID).Y()));
-        }
-    }
-    private void printNewCentroid()
+    public void printNewCentroid()
     {
         System.out.println("Centroid cluster1 : (" + list.get(0).X() + " , " + list.get(0).Y() + ")");
         System.out.println("Centroid cluster2 : (" + list.get(1).X() + " , " + list.get(1).Y() + ")");
         System.out.println("Centroid cluster3 : (" + list.get(2).X() + " , " + list.get(2).Y() + ")");
         System.out.println("Centroid cluster4 : (" + list.get(3).X() + " , " + list.get(3).Y() + ")");
+    }
+    
+    public void SSE()
+    {
+        double sum = 0;
+        
+        for(int i=0;i<distances1.size();i++)
+            sum += Math.pow(distances1.get(0), 2);
+
+        for(int i=0;i<distances2.size();i++)
+            sum += Math.pow(distances2.get(0), 2);
+            
+        for(int i=0;i<distances3.size();i++)
+            sum += Math.pow(distances3.get(0), 2);  
+           
+        for(int i=0;i<distances4.size();i++)
+            sum += Math.pow(distances4.get(0), 2);
+        
+            
+        System.out.println("SSE = " + sum);
     }
 }
