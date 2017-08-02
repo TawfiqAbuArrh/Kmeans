@@ -83,7 +83,7 @@ public class kmeans {
         boolean continue1 = true;
         while(continue1){
             
-            //Added the Cluster centroid in arralist above
+            //Added the Cluster centroid in arraylist above
             centroids.add(pointClass.getCentroids(0));
             centroids.add(pointClass.getCentroids(1));
             centroids.add(pointClass.getCentroids(2));
@@ -100,8 +100,9 @@ public class kmeans {
             if (answer.equalsIgnoreCase("N"))
             {
                 System.out.println("*******************************************");
-                continue1 = false;int k =0;
-                for (ClusterCentroid object: centroids) {
+                continue1 = false;//to exit from the while loop
+                int k =0;
+                for (ClusterCentroid object: centroids) {//retrieve data from arraylist above to print it
                     k++;
                     System.out.println("(" + object.X() + " , " + object.Y() + ")");
                     if (k == 4)
@@ -115,21 +116,25 @@ public class kmeans {
             }
             
             /*
-            *If the answer is Yes Make anthor iteration and calculate new centroid 
-            *with Mean OR Median
+            *If the answer is Yes ,it will make anthor iteration and calculate new centroid 
+            *with Mean OR Median method
             */
             else
             {
                 Point SecondPoints = new Point();
-                MeanCentroid mean = new MeanCentroid();
-                MedianCentroid median = new MedianCentroid();
                 
                 //If you select Mean
                 if(Answer == 1)
+                {
+                    MeanCentroid mean = new MeanCentroid();
                     mean.newMeanCentroidData();
+                }
                 //If you select Median
                 else
+                {
+                    MedianCentroid median = new MedianCentroid();
                     median.newMedianCentroidData();
+                }
                 
                 
                 SecondPoints.printNewCentroid();
@@ -151,7 +156,7 @@ public class kmeans {
         for(i=i;i<countChar;i++)
             k[i] = myChar[i];
         
-        point[row][0] = Double.parseDouble((String.valueOf(k)));
+        point[row][0] = Double.parseDouble((String.valueOf(k)));//insert X value in 1st column
     }
     public static void insertToY(char[] myChar, int i, int countChar,int row)
     {
@@ -160,8 +165,8 @@ public class kmeans {
                 k[i] = myChar[i];
             }
 
-            point[row][1] = Double.parseDouble((String.valueOf(k)));
-            //Insert Cluster value into the 3rd column
-            point [row][2] = Double.parseDouble(String.valueOf(myChar[(myChar.length)-1]));
+            point[row][1] = Double.parseDouble((String.valueOf(k)));//insert Y value in 2nd column
+            
+            point [row][2] = Double.parseDouble(String.valueOf(myChar[(myChar.length)-1]));//Insert Cluster value into the 3rd column
     }
 }
