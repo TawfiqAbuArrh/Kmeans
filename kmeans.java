@@ -49,7 +49,7 @@ public class kmeans {
             char[] myChar = line.toCharArray();
             for (int i=0;i<myChar.length;i++){
 
-                if (myChar[countChar] == ' ')
+                if (myChar[countChar] == ',')
                 {
                     insertToX(myChar,0,countChar,row);
                     
